@@ -2,10 +2,12 @@
 
 import axios from 'axios';
 import Link from "next/link";
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import NavBar from '../../components/navBar';
 import Footer from '../../components/footer';
 import Card from '../../components/Card';
+import Video from '../../components/video';
 
 export default function Page() {
   const [characters, setCharacters] = useState([]);
@@ -40,6 +42,13 @@ export default function Page() {
     <>
       <container id="container">
         <NavBar />
+        <Video />
+        <Image
+          src="/images/MarvelLogo.webp"
+          width={100}
+          height={100}
+          alt="Picture of the author"
+        />
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
           {currentCharacters.map((character) => (
             <Card key={character.id} character={character} />
