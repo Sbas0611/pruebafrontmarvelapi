@@ -25,7 +25,7 @@ export default function Page() {
   }, []);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 5;
   const totalPages = Math.ceil(characters.length / itemsPerPage);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -36,10 +36,10 @@ export default function Page() {
     setCurrentPage(pageNumber);
   };
 
-  return(
+  return (
     <>
       <container id="container">
-      <NavBar />
+        <NavBar />
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
           {currentCharacters.map((character) => (
             <Card key={character.id} character={character} />
@@ -49,18 +49,18 @@ export default function Page() {
           {Array.from({ length: totalPages }, (_, index) => (
             <Link
               key={index + 1}
-              href={`/dashboard?page=${index + 1}`}
-              className={`mx-2 rounded p-2 ${
-                currentPage === index + 1 ? "bg-gray-300" : "bg-gray-100"
-              }`}
+              href={`/characters?page=${index + 1}`}
+              className={`mx-2 rounded p-2 ${currentPage === index + 1 ? "bg-gray-300" : "bg-gray-100"
+                }`}
               onClick={() => handlePageChange(index + 1)}
             >
               {index + 1}
             </Link>
           ))}
         </div>
+
         <Footer />
       </container>
     </>
-  ) 
+  )
 }

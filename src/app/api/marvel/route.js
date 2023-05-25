@@ -6,7 +6,7 @@ const getHash = (ts, privateKey, publicKey) => {
 };
 
 export async function GET() {
-  
+
   let ts = Date.now().toString();
   const API_URL = process.env.NEXT_PUBLIC_BASE_URL;
   const apiKey = process.env.NEXT_PUBLIC_API_KEY;
